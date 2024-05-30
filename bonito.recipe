@@ -1,0 +1,40 @@
+
+Bootstrap: docker
+
+#first choose a docker base image that includes CUDA.  Various python packages may only
+FROM: nvidia/cuda:12.4.1-runtime-ubuntu20.04
+
+#instructions executed while the container is being built, after the base container OS has been installed
+%post
+  . /environment
+  SHELL=/bin/bash
+  CPATH="/usr/local/cuda/include:$CPATH"
+  PATH="/usr/local/cuda/bin:$PATH"
+  LD_LIBRARY_PATH="/usr/local/cuda/lib64:$LD_LIBRARY_PATH"
+  CUDA_HOME="/usr/local/cuda"
+
+  #update the linux distribution within the container
+  apt-get update
+  DEBIAN_FRONTEND=noninteractive TZ=Etc/UTC apt-get -y install tzdata
+  apt-get install -y wget git vim build-essential cmake libgtk2.0-0 python3.8 python3.8-dev python3.8-venv python3-distutils python3-apt libgtk-3-dev xauth curl
+  wget https://bootstrap.pypa.io/pip/get-pip.py
+  python3.8 get-pip.py
+  ln -s /usr/bin/python3.8 /usr/local/bin/python3
+
+  #download packages and install them, or use pip
+  pip install --upgrade pip
+  pip install ont-bonito
+
+#this section sets up the runtime environment within the container to be created
+%environment
+
+  # use bash as default shell
+  SHELL=/bin/bash
+
+  # add CUDA paths
+  CPATH="/usr/local/cuda/include:$CPATH"
+  PATH="/usr/local/cuda/bin:$PATH"
+  LD_LIBRARY_PATH="/usr/local/cuda/lib64:$LD_LIBRARY_PATH"
+  CUDA_HOME="/usr/local/cuda"
+
+  export PATH LD_LIBRARY_PATH CPATH CUDA_HOME

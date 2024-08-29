@@ -18,9 +18,9 @@ iters=3
 
 echo "raw data : " $1
 echo "Reference Genome : " $2
+echo "bonito Software : " $3
+echo "sr_basecall.py : " $4
 
-source ~/.bashrc 
-conda activate bonito_env
 ml samtools
 
 mkdir -p default/

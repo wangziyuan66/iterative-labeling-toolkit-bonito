@@ -3,9 +3,12 @@ bonito=/athena/chenlab/scratch/ziw4007/RNA004/software/bonito
 
 raw=$1
 
-validation=$2
+reference=$2
 
-reference=$3
+bonito=$3
+
+basecall=$4
+
 
 
 chunks=5000

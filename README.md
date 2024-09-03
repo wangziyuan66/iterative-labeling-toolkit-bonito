@@ -47,6 +47,10 @@ bash scripts/sr_iterative_labelling.sh raw reference ./ ./scripts/sr_basecall.py
 
 + **reference** : Reference genome path.
 
+# Data availability
+
+Sample raw pod5 files are provided for **BioRNA-Leu** and **ChemoRAN-Leu**. In sra, only bam can be uploaded. If some need more rawdata, contact us. 
+
 # Contact
 
 Ziyuan Wang princezwang@arizona.edu

@@ -1,6 +1,12 @@
-# Introduction
+# The Precise Basecalling of Short-Read Nanopore Sequencing
+
+## Introduction
 
 Nucleotide modifications deviate nanopore sequencing readouts, therefore generating artifacts during the basecalling of sequence backbones. Here, we present an iterative approach to polish modification-disturbed basecalling results. We show such an approach is able to promote the basecalling accuracy of both artificially-synthesized and real-world molecules. With demonstrated efficacy and reliability, we exploit the approach to precisely basecall therapeutic RNAs consisting of artificial or natural modifications, as the basis for quantifying the purity and integrity of vaccine mRNAs which are transcribed in vitro, and for determining modification hotspots of novel therapeutic RNA interference (RNAi) molecules which are bioengineered (BioRNA) in vivo.
+
+## Major Contribution: 3-step sampling
+
+Our recent study demonstrated that compromised basecalling can be polished via an iterative workflow. Our workflow builds upon the community consensus that Bonito can achieve acceptable accuracy for generic basecalling tasks. We then polish the yielded sketch sequences by aligning them to the ground-truth reference. We next take polished sequences, and their nanopore sequencing readouts, as training data to update Bonito. To make our workflow more effective in polishing 3’ and 5’-ends, we further develop a 3-step sampling strategy for preparing training data. Specifically, we sample reads that are mapped to the 5’-end, the entire molecule and the 3’-end subsequently. Our strategy guarantees the candidate sequence to be evenly covered by training reads, and therefore promises to improve the basecalling of 3’ and 5’-ends
 
 # Installation
 

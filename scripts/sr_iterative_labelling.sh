@@ -3,12 +3,9 @@ bonito=/athena/chenlab/scratch/ziw4007/RNA004/software/bonito
 
 raw=$1
 
-reference=$2
+validation=$2
 
-bonito=$3
-
-basecall=$4
-
+reference=$3
 
 
 chunks=5000
@@ -18,9 +15,9 @@ iters=3
 
 echo "raw data : " $1
 echo "Reference Genome : " $2
-echo "bonito Software : " $3
-echo "sr_basecall.py : " $4
 
+source ~/.bashrc 
+conda activate bonito_env
 ml samtools
 
 mkdir -p default/
@@ -97,3 +94,9 @@ samtools view -b $round/test/basecalls.bam > $round/test/test.bam
 samtools sort $round/test/test.bam -o $round/test/basecalls.sorted.bam
 samtools index $round/test/basecalls.sorted.bam
 ############ Round3 #############
+
+model=round3
+mkdir -p all
+singularity exec --bind /athena:/athena --nv $bonito/bonito.sif python3 $basecall ./$model/fine-tuned-model $validation --reference $reference --rna --recursive  --max-reads 200000 --chunksize 8000 > all/basecalls.bam
+samtools view all/basecalls.bam -b > all/test.bam; samtools sort all/test.bam -o all/basecalls.sorted.bam; samtools index all/basecalls.sorted.bam
+############ 3 round of Iterative Labeling ##############

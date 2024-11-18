@@ -95,8 +95,3 @@ samtools sort $round/test/test.bam -o $round/test/basecalls.sorted.bam
 samtools index $round/test/basecalls.sorted.bam
 ############ Round3 #############
 
-model=round3
-mkdir -p all
-singularity exec --bind /athena:/athena --nv $bonito/bonito.sif python3 $basecall ./$model/fine-tuned-model $validation --reference $reference --rna --recursive  --max-reads 200000 --chunksize 8000 > all/basecalls.bam
-samtools view all/basecalls.bam -b > all/test.bam; samtools sort all/test.bam -o all/basecalls.sorted.bam; samtools index all/basecalls.sorted.bam
-############ 3 round of Iterative Labeling ##############

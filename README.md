@@ -49,7 +49,7 @@ bash scripts/sr_iterative_labelling.sh raw reference ./ ./scripts/sr_basecall.py
 
 # Data availability
 
-Sample raw pod5 files are provided for **BioRNA-Leu** **BioRNA-Ser** **ChemoRNA-Leu** and **ChemoRAN-Ser** which you can downloaded in [here](example/bioRNA). In sra, only bam can be uploaded. If some need more rawdata, contact us. 
+Sample **raw pod5 files** are provided for **BioRNA-Leu** **BioRNA-Ser** **ChemoRNA-Leu** and **ChemoRAN-Ser** which you can downloaded in [here](example/bioRNA). In sra, only bam can be uploaded. If some need more rawdata, contact us. 
 
 # Contact
 

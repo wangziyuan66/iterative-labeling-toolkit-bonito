@@ -51,6 +51,10 @@ bash scripts/sr_iterative_labelling.sh raw reference ./ ./scripts/sr_basecall.py
 
 + **basecall** : The path to the "basecall.py" file.
 
+# Miscellaneous
+
+If the sequencing kit is RNA002, we recommend you to use [iterative-labeling-toolkit-taiyaki(https://github.com/wangziyuan66/iterative-labeling-toolkit-taiyaki). Currently, for the first round of basecalling we are using RNA004 hac 5.0.0 model.
+
 # Data availability
 
 Sample **raw pod5 files** are provided for **BioRNA-Leu** **BioRNA-Ser** **ChemoRNA-Leu** and **ChemoRAN-Ser** which you can downloaded in [here](example/bioRNA). In sra, only bam can be uploaded. If some need more rawdata, contact us. 

@@ -1,10 +1,10 @@
-basecall=/athena/chenlab/scratch/ziw4007/bioRNA/analysis/scripts/sr_basecall.py
-bonito=/athena/chenlab/scratch/ziw4007/RNA004/software/bonito
-
 raw=$1
 
 reference=$2
 
+basecall=$3
+
+bonito=$4
 
 chunks=5000
 num_reads=20000

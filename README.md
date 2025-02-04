@@ -6,7 +6,7 @@ Nucleotide modifications deviate nanopore sequencing readouts, therefore generat
 
 ## Major Contribution: 3-step sampling
 
-Our recent study demonstrated that compromised basecalling can be polished via an iterative workflow. Our workflow builds upon the community consensus that Bonito can achieve acceptable accuracy for generic basecalling tasks. We then polish the yielded sketch sequences by aligning them to the ground-truth reference. We next take polished sequences, and their nanopore sequencing readouts, as training data to update Bonito. To make our workflow more effective in polishing 3’ and 5’-ends, we further develop a 3-step sampling strategy for preparing training data. Specifically, we sample reads that are mapped to the 5’-end, the entire molecule and the 3’-end subsequently. Our strategy guarantees the candidate sequence to be evenly covered by training reads, and therefore promises to improve the basecalling of 3’ and 5’-ends
+Our study shows that compromised basecalling can be improved through an iterative workflow. To enhance polishing at the 3’ and 5’ ends, which is crucial for short reads, we developed a 3-step sampling strategy. Reads are sampled from the 5’ end, the full molecule, and the 3’ end, ensuring even coverage and better basecalling at both termini.
 
 # Installation
 
